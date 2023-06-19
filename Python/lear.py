@@ -94,5 +94,5 @@ print(len(inputlist))
 # for e in inputlist:
 #     _ = runoneday(e)
 
-with Pool(30) as p:
+with Pool(max(2, os.cpu_count() - 4)) as p:
     _ = p.map(runoneday, inputlist)

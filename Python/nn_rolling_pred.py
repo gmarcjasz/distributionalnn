@@ -268,6 +268,7 @@ optuna.logging.get_logger('optuna').addHandler(logging.StreamHandler(sys.stdout)
 study_name = f'FINAL_DE_selection_prob_{distribution.lower()}' # 'on_new_data_no_feature_selection'
 storage_name = f'sqlite:///../trialfiles/{study_name}'
 study = optuna.create_study(study_name=study_name, storage=storage_name, load_if_exists=True)
+print(study.trials_dataframe())
 best_params = study.best_params
 print(best_params)
 
@@ -277,5 +278,5 @@ print(len(inputlist))
 # for e in inputlist:
 #     _ = runoneday(e)
 
-with Pool(16) as p:
+with Pool(max(os.cpu_count() // 4, 1)) as p:
     _ = p.map(runoneday, inputlist)
