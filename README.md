@@ -1,1 +1,1 @@
-# Work in progress
+## See commands.sh file for example usage 
