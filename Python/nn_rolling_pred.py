@@ -83,8 +83,8 @@ def runoneday(inp):
         X[d, 216] = df.loc[df.index[(d-2)*24:(d-1)*24:24], df.columns[3]].to_numpy() # D-2 EUA
         X[d, 217] = df.loc[df.index[(d-2)*24:(d-1)*24:24], df.columns[4]].to_numpy() # D-2 API2_Coal
         X[d, 218] = df.loc[df.index[(d-2)*24:(d-1)*24:24], df.columns[5]].to_numpy() # D-2 TTF_Gas
-        X[d, 219] = data.loc[data.index[(d-2)*24:(d-1)*24:24], data.columns[6]].to_numpy() # D-2 Brent oil
-        X[d, 220] = data.index[d].weekday()
+        X[d, 219] = df.loc[df.index[(d-2)*24:(d-1)*24:24], df.columns[6]].to_numpy() # D-2 Brent oil
+        X[d, 220] = df.index[d].weekday()
     # '''
     # input feature selection
     colmask = [False] * INP_SIZE
